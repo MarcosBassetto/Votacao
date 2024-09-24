@@ -1,0 +1,31 @@
+package com.teste;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.model.Candidato;
+import com.repository.CandidatoRepository;
+
+import jakarta.annotation.PostConstruct;
+
+@Component
+public class AddCandidato {
+
+    @Autowired
+    private CandidatoRepository candidatoRepository;
+
+    @PostConstruct
+    public void adicionarCandidatos() {
+        if (candidatoRepository.count() == 0) {
+            List<Candidato> candidatos = new ArrayList<>();
+            
+            for (int i = 1; i <= 31; i++) {
+                candidatos.add(new Candidato(false, "Candidato " + i));
+            }
+            candidatoRepository.saveAll(candidatos);
+        }
+    }
+}

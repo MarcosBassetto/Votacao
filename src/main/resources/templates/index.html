@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Votação</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>Seleção de votação</h1>
+    </div>
+
+    <div class="divtable">
+        <form action="">
+            <table id="votacaoTable">
+                <thead>
+                    <tr>
+                        <th class="selecao">Seleção</th>
+                        <th class="nome">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="candidato : ${candidatos}">
+                        <td class="selecao">
+                            <input type="checkbox" th:id="'candidato_' + ${candidato.id}"/>
+                        </td>
+                        <td class="nome" th:text="${candidato.nome}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="pagination"></div>
+
+            <input type="submit" value="VOTAR" />
+        </form>
+    </div>
+</body>
+
+</html>

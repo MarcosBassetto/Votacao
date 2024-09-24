@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Candidatos</title>
+</head>
+<body>
+    <h1>Cadastro de Candidatos</h1>
+    <form action="#" th:action="@{/candidatos}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="voto">Voto:</label>
+        <input type="checkbox" id="voto" name="voto">
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
